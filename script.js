@@ -387,7 +387,7 @@ function viewTicket(ticketId) {
                     {
                         user: 'Support Agent',
                         date: 'Apr 11, 2023',
-                        message: 'You're welcome, John! Let us know if you have any other questions.',
+                        message: "You're welcome, John! Let us know if you have any other questions.",
                         isAdmin: true
                     }
                 ]

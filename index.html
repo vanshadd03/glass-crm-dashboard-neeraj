@@ -1,26 +1,1414 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>glass-crm-dashboard-neeraj</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEERAJ - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>NEERAJ</h2>
+                <div class="sidebar-close" id="sidebarClose">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="active" onclick="openTab('dashboard')">
+                        <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li onclick="openTab('deposit')">
+                        <a href="#deposit"><i class="fas fa-arrow-down"></i> Deposit</a>
+                    </li>
+                    <li onclick="openTab('withdraw')">
+                        <a href="#withdraw"><i class="fas fa-arrow-up"></i> Withdraw</a>
+                    </li>
+                    <li onclick="openTab('profile')">
+                        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                    </li>
+                    <li onclick="openTab('team')">
+                        <a href="#team"><i class="fas fa-users"></i> Team</a>
+                    </li>
+                    <li onclick="openTab('treeView')">
+                        <a href="#treeView"><i class="fas fa-sitemap"></i> Tree View</a>
+                    </li>
+                    <li onclick="openTab('income')">
+                        <a href="#income"><i class="fas fa-money-bill-wave"></i> Income</a>
+                    </li>
+                    <li onclick="openTab('support')">
+                        <a href="#support"><i class="fas fa-headset"></i> Support</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
 
-    <meta property="og:title" content="glass-crm-dashboard-neeraj" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <div class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                <div class="header-center">
+                    <div class="logo">
+                        <i class="fas fa-cube"></i>
+                        <span>NEERAJ</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="profile-dropdown">
+                        <div class="profile-img">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Profile">
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="#profile" onclick="openTab('profile')"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="tab-content active">
+                    <h2 class="section-title">Dashboard</h2>
+                    <div class="dashboard-grid">
+                        <!-- Profile Card -->
+                        <div class="card profile-card">
+                            <div class="card-header">
+                                <h3>Profile</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="profile-details">
+                                    <div class="profile-image">
+                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Profile">
+                                    </div>
+                                    <div class="profile-info">
+                                        <h4>John Doe</h4>
+                                        <p>Member since: Jan 15, 2023</p>
+                                        <p>User ID: NEE78945612</p>
+                                        <p>Rank: Gold</p>
+                                        <button class="btn btn-outline">View Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+                        <!-- Total Gain Card -->
+                        <div class="card total-gain-card">
+                            <div class="card-header">
+                                <h3>Total Gain</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="gain-items">
+                                    <div class="gain-item">
+                                        <div class="gain-icon">
+                                            <i class="fas fa-coins"></i>
+                                        </div>
+                                        <div class="gain-details">
+                                            <p>Direct Income</p>
+                                            <h4>$1,250.00</h4>
+                                        </div>
+                                    </div>
+                                    <div class="gain-item">
+                                        <div class="gain-icon">
+                                            <i class="fas fa-network-wired"></i>
+                                        </div>
+                                        <div class="gain-details">
+                                            <p>Team Income</p>
+                                            <h4>$3,780.50</h4>
+                                        </div>
+                                    </div>
+                                    <div class="gain-item">
+                                        <div class="gain-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="gain-details">
+                                            <p>Growth Income</p>
+                                            <h4>$890.25</h4>
+                                        </div>
+                                    </div>
+                                    <div class="gain-item">
+                                        <div class="gain-icon">
+                                            <i class="fas fa-award"></i>
+                                        </div>
+                                        <div class="gain-details">
+                                            <p>Bonus Income</p>
+                                            <h4>$450.00</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="total-amount">
+                                    <p>Total earnings</p>
+                                    <h3>$6,370.75</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wallet Card -->
+                        <div class="card wallet-card">
+                            <div class="card-header">
+                                <h3>Wallet</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="wallet-balance">
+                                    <div class="balance-icon">
+                                        <i class="fas fa-wallet"></i>
+                                    </div>
+                                    <div class="balance-details">
+                                        <p>Available Balance</p>
+                                        <h2>$4,250.80</h2>
+                                    </div>
+                                </div>
+                                <div class="wallet-buttons">
+                                    <button class="btn btn-primary" onclick="openTab('deposit')">
+                                        <i class="fas fa-arrow-down"></i> Top-Up
+                                    </button>
+                                    <button class="btn btn-primary" onclick="openTab('withdraw')">
+                                        <i class="fas fa-arrow-up"></i> Withdraw
+                                    </button>
+                                </div>
+                                <div class="wallet-transactions">
+                                    <h4>Recent Transactions</h4>
+                                    <div class="transaction-item">
+                                        <div class="transaction-icon received">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <div class="transaction-info">
+                                                <p>Deposit</p>
+                                                <small>Apr 12, 2023</small>
+                                            </div>
+                                            <div class="transaction-amount received">
+                                                +$500.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="transaction-icon sent">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <div class="transaction-info">
+                                                <p>Withdrawal</p>
+                                                <small>Apr 08, 2023</small>
+                                            </div>
+                                            <div class="transaction-amount sent">
+                                                -$200.00
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="transaction-item">
+                                        <div class="transaction-icon received">
+                                            <i class="fas fa-coins"></i>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <div class="transaction-info">
+                                                <p>Team Bonus</p>
+                                                <small>Apr 05, 2023</small>
+                                            </div>
+                                            <div class="transaction-amount received">
+                                                +$175.50
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="view-all">View All Transactions</a>
+                            </div>
+                        </div>
+
+                        <!-- Referral Card -->
+                        <div class="card referral-card">
+                            <div class="card-header">
+                                <h3>Referral Link</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>Share your referral link to earn commission</p>
+                                <div class="referral-link">
+                                    <input type="text" id="referralLink" value="https://neeraj.com/ref/johndoe123" readonly>
+                                    <button class="btn btn-outline" onclick="copyReferral()">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <div class="referral-stats">
+                                    <div class="stat-item">
+                                        <h4>12</h4>
+                                        <p>Total Referrals</p>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4>$385.50</h4>
+                                        <p>Referral Earnings</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Shortcuts -->
+                        <div class="card shortcuts-card">
+                            <div class="card-header">
+                                <h3>Quick Access</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="shortcuts-grid">
+                                    <div class="shortcut-item" onclick="openTab('deposit')">
+                                        <div class="shortcut-icon">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <p>Deposit</p>
+                                    </div>
+                                    <div class="shortcut-item" onclick="openTab('withdraw')">
+                                        <div class="shortcut-icon">
+                                            <i class="fas fa-arrow-up"></i>
+                                        </div>
+                                        <p>Withdraw</p>
+                                    </div>
+                                    <div class="shortcut-item" onclick="openTab('team')">
+                                        <div class="shortcut-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <p>Team</p>
+                                    </div>
+                                    <div class="shortcut-item" onclick="openTab('treeView')">
+                                        <div class="shortcut-icon">
+                                            <i class="fas fa-sitemap"></i>
+                                        </div>
+                                        <p>Tree View</p>
+                                    </div>
+                                    <div class="shortcut-item" onclick="openTab('income')">
+                                        <div class="shortcut-icon">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                        </div>
+                                        <p>Income</p>
+                                    </div>
+                                    <div class="shortcut-item" onclick="openTab('support')">
+                                        <div class="shortcut-icon">
+                                            <i class="fas fa-headset"></i>
+                                        </div>
+                                        <p>Support</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Deposit Section -->
+                <section id="deposit" class="tab-content">
+                    <h2 class="section-title">Deposit</h2>
+                    <div class="deposit-grid">
+                        <div class="card deposit-qr-card">
+                            <div class="card-header">
+                                <h3>Deposit via QR Code</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="qr-container">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" alt="Wallet QR Code">
+                                </div>
+                                <div class="wallet-address">
+                                    <p>Wallet Address</p>
+                                    <div class="address-copy">
+                                        <input type="text" id="walletAddress" value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" readonly>
+                                        <button class="btn btn-outline" onclick="copyWalletAddress()">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="deposit-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Scan this QR code or copy the wallet address to make your deposit. Minimum deposit amount is $50.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card deposit-form-card">
+                            <div class="card-header">
+                                <h3>Deposit Details</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="deposit-form">
+                                    <div class="form-group">
+                                        <label for="depositAmount">Deposit Amount (USD)</label>
+                                        <input type="number" id="depositAmount" min="50" placeholder="Enter amount">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="transactionId">Transaction ID / Hash</label>
+                                        <input type="text" id="transactionId" placeholder="Enter transaction ID">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="depositDate">Deposit Date</label>
+                                        <input type="date" id="depositDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="receiptUpload">Upload Receipt (Optional)</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="receiptUpload" class="file-input">
+                                            <label for="receiptUpload" class="file-label">
+                                                <i class="fas fa-upload"></i> Choose File
+                                            </label>
+                                            <span class="file-name">No file chosen</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="depositNote">Additional Notes</label>
+                                        <textarea id="depositNote" rows="3" placeholder="Any additional information"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Deposit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Withdraw Section -->
+                <section id="withdraw" class="tab-content">
+                    <h2 class="section-title">Withdraw</h2>
+                    <div class="withdraw-container">
+                        <div class="card withdraw-card">
+                            <div class="card-header">
+                                <h3>Withdraw Funds</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="balance-info">
+                                    <div class="balance-icon">
+                                        <i class="fas fa-wallet"></i>
+                                    </div>
+                                    <div class="balance-text">
+                                        <p>Available Balance</p>
+                                        <h3>$4,250.80</h3>
+                                    </div>
+                                </div>
+                                
+                                <form class="withdraw-form">
+                                    <div class="form-group">
+                                        <label for="withdrawMethod">Withdrawal Method</label>
+                                        <select id="withdrawMethod">
+                                            <option value="bank">Bank Transfer</option>
+                                            <option value="crypto">Cryptocurrency</option>
+                                            <option value="paypal">PayPal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="withdrawAmount">Amount (USD)</label>
+                                        <input type="number" id="withdrawAmount" min="50" max="4250.80" placeholder="Enter amount">
+                                        <small>Minimum: $50, Maximum: $4,250.80</small>
+                                    </div>
+                                    <div class="form-group" id="bankDetails">
+                                        <label for="accountNumber">Account Number</label>
+                                        <input type="text" id="accountNumber" placeholder="Enter your account number">
+                                    </div>
+                                    <div class="form-group" id="bankDetails2">
+                                        <label for="bankName">Bank Name</label>
+                                        <input type="text" id="bankName" placeholder="Enter your bank name">
+                                    </div>
+                                    <div class="form-group crypto-address" style="display: none;">
+                                        <label for="cryptoAddress">Wallet Address</label>
+                                        <input type="text" id="cryptoAddress" placeholder="Enter your wallet address">
+                                    </div>
+                                    <div class="form-group paypal-email" style="display: none;">
+                                        <label for="paypalEmail">PayPal Email</label>
+                                        <input type="email" id="paypalEmail" placeholder="Enter your PayPal email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="withdrawPassword">Password</label>
+                                        <input type="password" id="withdrawPassword" placeholder="Enter your password">
+                                    </div>
+                                    <div class="withdraw-fees">
+                                        <div class="fee-item">
+                                            <p>Withdrawal Amount</p>
+                                            <p>$<span id="summaryAmount">0.00</span></p>
+                                        </div>
+                                        <div class="fee-item">
+                                            <p>Processing Fee (2%)</p>
+                                            <p>$<span id="feeAmount">0.00</span></p>
+                                        </div>
+                                        <div class="fee-item total">
+                                            <p>You will receive</p>
+                                            <p>$<span id="receiveAmount">0.00</span></p>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Withdrawal</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Section -->
+                <section id="profile" class="tab-content">
+                    <h2 class="section-title">Profile</h2>
+                    <div class="profile-container">
+                        <div class="card profile-details-card">
+                            <div class="card-header">
+                                <h3>Personal Information</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="profile-avatar">
+                                    <div class="avatar-container">
+                                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Profile">
+                                        <div class="avatar-overlay">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                        <input type="file" id="profileUpload" hidden>
+                                    </div>
+                                    <div class="avatar-info">
+                                        <h4>John Doe</h4>
+                                        <p>User ID: NEE78945612</p>
+                                    </div>
+                                </div>
+                                
+                                <form class="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" id="firstName" value="John">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" id="lastName" value="Doe">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="email">Email Address</label>
+                                            <input type="email" id="email" value="john.doe@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="tel" id="phone" value="+1 (555) 123-4567">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="dob">Date of Birth</label>
+                                            <input type="date" id="dob" value="1985-06-15">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="country">Country</label>
+                                            <select id="country">
+                                                <option value="US" selected>United States</option>
+                                                <option value="CA">Canada</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="AU">Australia</option>
+                                                <option value="IN">India</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <textarea id="address" rows="2">123 Main Street, Apt 4B, New York, NY 10001</textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-right-column">
+                            <div class="card security-card">
+                                <div class="card-header">
+                                    <h3>Security Settings</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form class="password-form">
+                                        <div class="form-group">
+                                            <label for="currentPassword">Current Password</label>
+                                            <input type="password" id="currentPassword" placeholder="Enter current password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="newPassword">New Password</label>
+                                            <input type="password" id="newPassword" placeholder="Enter new password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirmPassword">Confirm New Password</label>
+                                            <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update Password</button>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            <div class="card kyc-card">
+                                <div class="card-header">
+                                    <h3>KYC Verification</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="verification-status">
+                                        <div class="status-icon verified">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="status-text">
+                                            <h4>Verified</h4>
+                                            <p>Your documents have been verified</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="document-upload">
+                                        <h4>Upload Documents</h4>
+                                        <div class="upload-item">
+                                            <div class="upload-label">
+                                                <i class="fas fa-id-card"></i>
+                                                <span>ID Proof</span>
+                                            </div>
+                                            <div class="upload-actions">
+                                                <span class="upload-status uploaded">Uploaded</span>
+                                                <button class="btn btn-sm btn-outline">View</button>
+                                            </div>
+                                        </div>
+                                        <div class="upload-item">
+                                            <div class="upload-label">
+                                                <i class="fas fa-address-card"></i>
+                                                <span>Address Proof</span>
+                                            </div>
+                                            <div class="upload-actions">
+                                                <span class="upload-status uploaded">Uploaded</span>
+                                                <button class="btn btn-sm btn-outline">View</button>
+                                            </div>
+                                        </div>
+                                        <div class="upload-item">
+                                            <div class="upload-label">
+                                                <i class="fas fa-image"></i>
+                                                <span>Selfie with ID</span>
+                                            </div>
+                                            <div class="upload-actions">
+                                                <div class="file-upload">
+                                                    <input type="file" id="selfieUpload" class="file-input">
+                                                    <label for="selfieUpload" class="btn btn-sm btn-outline">
+                                                        Upload
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card bank-details-card">
+                                <div class="card-header">
+                                    <h3>Bank Account Details</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form class="bank-form">
+                                        <div class="form-group">
+                                            <label for="accountHolderName">Account Holder Name</label>
+                                            <input type="text" id="accountHolderName" value="John Doe">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="accountNumber">Account Number</label>
+                                            <input type="text" id="accountNumber" value="**** **** **** 1234">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="bankName">Bank Name</label>
+                                                <input type="text" id="bankName" value="CitiBank">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="branchCode">Branch Code</label>
+                                                <input type="text" id="branchCode" value="CITI00123">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="swiftCode">SWIFT/BIC Code</label>
+                                            <input type="text" id="swiftCode" value="CITIUS33">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update Bank Details</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Team Section -->
+                <section id="team" class="tab-content">
+                    <h2 class="section-title">Team</h2>
+                    <div class="team-container">
+                        <div class="team-overview">
+                            <div class="card team-stats-card">
+                                <div class="card-header">
+                                    <h3>Team Overview</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="stats-grid">
+                                        <div class="stat-item">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-users"></i>
+                                            </div>
+                                            <div class="stat-details">
+                                                <h4>36</h4>
+                                                <p>Total Members</p>
+                                            </div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-user-check"></i>
+                                            </div>
+                                            <div class="stat-details">
+                                                <h4>28</h4>
+                                                <p>Active Members</p>
+                                            </div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-user-clock"></i>
+                                            </div>
+                                            <div class="stat-details">
+                                                <h4>8</h4>
+                                                <p>Inactive Members</p>
+                                            </div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-icon">
+                                                <i class="fas fa-user-plus"></i>
+                                            </div>
+                                            <div class="stat-details">
+                                                <h4>5</h4>
+                                                <p>New This Month</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card team-structure-card">
+                                <div class="card-header">
+                                    <h3>Team Structure</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="structure-tabs">
+                                        <button class="tab-btn active" data-tab="direct">Direct</button>
+                                        <button class="tab-btn" data-tab="growline">Growline</button>
+                                    </div>
+                                    <div class="structure-content">
+                                        <div class="structure-tab-content active" id="direct-tab">
+                                            <div class="structure-stats">
+                                                <div class="structure-stat">
+                                                    <h4>12</h4>
+                                                    <p>Direct Active</p>
+                                                </div>
+                                                <div class="structure-stat">
+                                                    <h4>3</h4>
+                                                    <p>Direct Inactive</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="structure-tab-content" id="growline-tab">
+                                            <div class="structure-stats">
+                                                <div class="structure-stat">
+                                                    <h4>16</h4>
+                                                    <p>Growline Active</p>
+                                                </div>
+                                                <div class="structure-stat">
+                                                    <h4>5</h4>
+                                                    <p>Growline Inactive</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card team-table-card">
+                            <div class="card-header">
+                                <h3>Team Members</h3>
+                                <div class="table-actions">
+                                    <div class="search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Search members...">
+                                    </div>
+                                    <div class="filter-dropdown">
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-filter"></i> Filter
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="#" data-filter="all">All Members</a>
+                                            <a href="#" data-filter="active">Active</a>
+                                            <a href="#" data-filter="inactive">Inactive</a>
+                                            <a href="#" data-filter="direct">Direct</a>
+                                            <a href="#" data-filter="growline">Growline</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="team-table">
+                                        <thead>
+                                            <tr>
+                                                <th>User ID</th>
+                                                <th>Name</th>
+                                                <th>Join Date</th>
+                                                <th>Type</th>
+                                                <th>Status</th>
+                                                <th>Level</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>NEE54321</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Michael Brown</span>
+                                                    </div>
+                                                </td>
+                                                <td>Jan 28, 2023</td>
+                                                <td>Direct</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>Gold</td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="showUserDetails('NEE54321')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>NEE78965</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Sarah Johnson</span>
+                                                    </div>
+                                                </td>
+                                                <td>Feb 15, 2023</td>
+                                                <td>Direct</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>Silver</td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="showUserDetails('NEE78965')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>NEE12453</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>David Wilson</span>
+                                                    </div>
+                                                </td>
+                                                <td>Mar 3, 2023</td>
+                                                <td>Growline</td>
+                                                <td><span class="status-badge inactive">Inactive</span></td>
+                                                <td>Bronze</td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="showUserDetails('NEE12453')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>NEE36598</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Emily Clark</span>
+                                                    </div>
+                                                </td>
+                                                <td>Mar 17, 2023</td>
+                                                <td>Direct</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>Silver</td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="showUserDetails('NEE36598')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>NEE98745</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Robert Martinez</span>
+                                                    </div>
+                                                </td>
+                                                <td>Apr 2, 2023</td>
+                                                <td>Growline</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>Gold</td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="showUserDetails('NEE98745')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pagination">
+                                    <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="pagination-btn active">1</button>
+                                    <button class="pagination-btn">2</button>
+                                    <button class="pagination-btn">3</button>
+                                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tree View Section -->
+                <section id="treeView" class="tab-content">
+                    <h2 class="section-title">Tree View</h2>
+                    <div class="tree-container">
+                        <div class="card tree-card">
+                            <div class="card-header">
+                                <h3>Referral Tree</h3>
+                                <div class="tree-actions">
+                                    <button class="btn btn-outline btn-sm" id="expandAll">
+                                        <i class="fas fa-expand-alt"></i> Expand All
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" id="collapseAll">
+                                        <i class="fas fa-compress-alt"></i> Collapse All
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="binary-tree">
+                                    <div class="tree-node root">
+                                        <div class="node-content">
+                                            <div class="node-avatar">
+                                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="John Doe">
+                                            </div>
+                                            <div class="node-info">
+                                                <h4>John Doe</h4>
+                                                <p>NEE78945612</p>
+                                                <span class="status-badge active">Active</span>
+                                            </div>
+                                        </div>
+                                        <div class="node-branches">
+                                            <div class="branch left">
+                                                <div class="branch-label">Left</div>
+                                                <div class="branch-line"></div>
+                                                <div class="tree-node">
+                                                    <div class="node-content">
+                                                        <div class="node-avatar">
+                                                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Michael Brown">
+                                                        </div>
+                                                        <div class="node-info">
+                                                            <h4>Michael Brown</h4>
+                                                            <p>NEE54321</p>
+                                                            <span class="status-badge active">Active</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="node-branches">
+                                                        <div class="branch left">
+                                                            <div class="branch-label">Left</div>
+                                                            <div class="branch-line"></div>
+                                                            <div class="tree-node">
+                                                                <div class="node-content">
+                                                                    <div class="node-avatar">
+                                                                        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Emily Clark">
+                                                                    </div>
+                                                                    <div class="node-info">
+                                                                        <h4>Emily Clark</h4>
+                                                                        <p>NEE36598</p>
+                                                                        <span class="status-badge active">Active</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="branch right">
+                                                            <div class="branch-label">Right</div>
+                                                            <div class="branch-line"></div>
+                                                            <div class="tree-node">
+                                                                <div class="node-content">
+                                                                    <div class="node-avatar">
+                                                                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="David Wilson">
+                                                                    </div>
+                                                                    <div class="node-info">
+                                                                        <h4>David Wilson</h4>
+                                                                        <p>NEE12453</p>
+                                                                        <span class="status-badge inactive">Inactive</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="branch right">
+                                                <div class="branch-label">Right</div>
+                                                <div class="branch-line"></div>
+                                                <div class="tree-node">
+                                                    <div class="node-content">
+                                                        <div class="node-avatar">
+                                                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Sarah Johnson">
+                                                        </div>
+                                                        <div class="node-info">
+                                                            <h4>Sarah Johnson</h4>
+                                                            <p>NEE78965</p>
+                                                            <span class="status-badge active">Active</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="node-branches">
+                                                        <div class="branch left">
+                                                            <div class="branch-label">Left</div>
+                                                            <div class="branch-line"></div>
+                                                            <div class="tree-node empty">
+                                                                <div class="node-content">
+                                                                    <div class="node-avatar empty">
+                                                                        <i class="fas fa-plus"></i>
+                                                                    </div>
+                                                                    <div class="node-info">
+                                                                        <h4>Empty</h4>
+                                                                        <p>Add Member</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="branch right">
+                                                            <div class="branch-label">Right</div>
+                                                            <div class="branch-line"></div>
+                                                            <div class="tree-node">
+                                                                <div class="node-content">
+                                                                    <div class="node-avatar">
+                                                                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="Robert Martinez">
+                                                                    </div>
+                                                                    <div class="node-info">
+                                                                        <h4>Robert Martinez</h4>
+                                                                        <p>NEE98745</p>
+                                                                        <span class="status-badge active">Active</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Income Section -->
+                <section id="income" class="tab-content">
+                    <h2 class="section-title">Income</h2>
+                    <div class="income-container">
+                        <div class="card income-summary-card">
+                            <div class="card-header">
+                                <h3>Income Summary</h3>
+                                <div class="date-filter">
+                                    <button class="filter-btn active" data-period="week">Week</button>
+                                    <button class="filter-btn" data-period="month">Month</button>
+                                    <button class="filter-btn" data-period="year">Year</button>
+                                    <button class="filter-btn" data-period="all">All</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="income-stats">
+                                    <div class="income-stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                        </div>
+                                        <div class="stat-details">
+                                            <h4>$6,370.75</h4>
+                                            <p>Total Earnings</p>
+                                        </div>
+                                        <div class="stat-trend up">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>12%</span>
+                                        </div>
+                                    </div>
+                                    <div class="income-stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-user-friends"></i>
+                                        </div>
+                                        <div class="stat-details">
+                                            <h4>$1,250.00</h4>
+                                            <p>Direct Income</p>
+                                        </div>
+                                        <div class="stat-trend up">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>8%</span>
+                                        </div>
+                                    </div>
+                                    <div class="income-stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="stat-details">
+                                            <h4>$3,780.50</h4>
+                                            <p>Team Income</p>
+                                        </div>
+                                        <div class="stat-trend up">
+                                            <i class="fas fa-arrow-up"></i>
+                                            <span>15%</span>
+                                        </div>
+                                    </div>
+                                    <div class="income-stat-item">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-award"></i>
+                                        </div>
+                                        <div class="stat-details">
+                                            <h4>$1,340.25</h4>
+                                            <p>Bonus Income</p>
+                                        </div>
+                                        <div class="stat-trend down">
+                                            <i class="fas fa-arrow-down"></i>
+                                            <span>3%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="charts-container">
+                            <div class="card income-chart-card">
+                                <div class="card-header">
+                                    <h3>Income Overview</h3>
+                                    <div class="chart-actions">
+                                        <button class="btn btn-outline btn-sm active" data-chart="line">Line</button>
+                                        <button class="btn btn-outline btn-sm" data-chart="bar">Bar</button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container">
+                                        <canvas id="incomeChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card income-distribution-card">
+                                <div class="card-header">
+                                    <h3>Income Distribution</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-container">
+                                        <canvas id="distributionChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card income-history-card">
+                            <div class="card-header">
+                                <h3>Income History</h3>
+                                <div class="table-actions">
+                                    <div class="search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Search...">
+                                    </div>
+                                    <div class="filter-dropdown">
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-filter"></i> Filter
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="#" data-filter="all">All Types</a>
+                                            <a href="#" data-filter="direct">Direct</a>
+                                            <a href="#" data-filter="team">Team</a>
+                                            <a href="#" data-filter="bonus">Bonus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="income-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Type</th>
+                                                <th>From</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Apr 15, 2023</td>
+                                                <td>Direct</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Michael Brown</span>
+                                                    </div>
+                                                </td>
+                                                <td>New Signup Commission</td>
+                                                <td class="amount">$120.00</td>
+                                                <td><span class="status-badge complete">Complete</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apr 12, 2023</td>
+                                                <td>Team</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Sarah Johnson</span>
+                                                    </div>
+                                                </td>
+                                                <td>Level 2 Team Bonus</td>
+                                                <td class="amount">$85.50</td>
+                                                <td><span class="status-badge complete">Complete</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apr 10, 2023</td>
+                                                <td>Bonus</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <i class="fas fa-trophy"></i>
+                                                        <span>System</span>
+                                                    </div>
+                                                </td>
+                                                <td>Rank Achievement Bonus</td>
+                                                <td class="amount">$200.00</td>
+                                                <td><span class="status-badge complete">Complete</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apr 05, 2023</td>
+                                                <td>Team</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Robert Martinez</span>
+                                                    </div>
+                                                </td>
+                                                <td>Level 3 Commission</td>
+                                                <td class="amount">$45.75</td>
+                                                <td><span class="status-badge complete">Complete</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apr 01, 2023</td>
+                                                <td>Direct</td>
+                                                <td>
+                                                    <div class="user-info">
+                                                        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80" alt="User">
+                                                        <span>Emily Clark</span>
+                                                    </div>
+                                                </td>
+                                                <td>Monthly Subscription Commission</td>
+                                                <td class="amount">$75.00</td>
+                                                <td><span class="status-badge complete">Complete</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pagination">
+                                    <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="pagination-btn active">1</button>
+                                    <button class="pagination-btn">2</button>
+                                    <button class="pagination-btn">3</button>
+                                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Support Section -->
+                <section id="support" class="tab-content">
+                    <h2 class="section-title">Support</h2>
+                    <div class="support-container">
+                        <div class="card create-ticket-card">
+                            <div class="card-header">
+                                <h3>Create New Ticket</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="ticket-form">
+                                    <div class="form-group">
+                                        <label for="ticketSubject">Subject</label>
+                                        <input type="text" id="ticketSubject" placeholder="Enter ticket subject">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="ticketType">Type</label>
+                                            <select id="ticketType">
+                                                <option value="general">General Inquiry</option>
+                                                <option value="technical">Technical Issue</option>
+                                                <option value="payment">Payment Problem</option>
+                                                <option value="account">Account Issue</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ticketPriority">Priority</label>
+                                            <select id="ticketPriority">
+                                                <option value="low">Low</option>
+                                                <option value="medium" selected>Medium</option>
+                                                <option value="high">High</option>
+                                                <option value="urgent">Urgent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ticketMessage">Message</label>
+                                        <textarea id="ticketMessage" rows="5" placeholder="Describe your issue in detail..."></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ticketAttachment">Attachments (Optional)</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="ticketAttachment" class="file-input" multiple>
+                                            <label for="ticketAttachment" class="file-label">
+                                                <i class="fas fa-upload"></i> Choose Files
+                                            </label>
+                                            <span class="file-name">No files chosen</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Ticket</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card ticket-history-card">
+                            <div class="card-header">
+                                <h3>Ticket History</h3>
+                                <div class="table-actions">
+                                    <div class="search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Search tickets...">
+                                    </div>
+                                    <div class="filter-dropdown">
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-filter"></i> Filter
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="#" data-filter="all">All Tickets</a>
+                                            <a href="#" data-filter="open">Open</a>
+                                            <a href="#" data-filter="closed">Closed</a>
+                                            <a href="#" data-filter="pending">Pending</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="ticket-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ticket ID</th>
+                                                <th>Subject</th>
+                                                <th>Type</th>
+                                                <th>Priority</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#TK-10045</td>
+                                                <td>Unable to withdraw funds</td>
+                                                <td>Payment Problem</td>
+                                                <td><span class="priority-badge high">High</span></td>
+                                                <td>Apr 15, 2023</td>
+                                                <td><span class="status-badge open">Open</span></td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="viewTicket('#TK-10045')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#TK-10038</td>
+                                                <td>How to invite new members?</td>
+                                                <td>General Inquiry</td>
+                                                <td><span class="priority-badge low">Low</span></td>
+                                                <td>Apr 10, 2023</td>
+                                                <td><span class="status-badge resolved">Resolved</span></td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="viewTicket('#TK-10038')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#TK-10027</td>
+                                                <td>Login issues on mobile device</td>
+                                                <td>Technical Issue</td>
+                                                <td><span class="priority-badge medium">Medium</span></td>
+                                                <td>Apr 05, 2023</td>
+                                                <td><span class="status-badge pending">Pending</span></td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="viewTicket('#TK-10027')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#TK-10015</td>
+                                                <td>Request for rank upgrade</td>
+                                                <td>Account Issue</td>
+                                                <td><span class="priority-badge medium">Medium</span></td>
+                                                <td>Mar 28, 2023</td>
+                                                <td><span class="status-badge resolved">Resolved</span></td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="viewTicket('#TK-10015')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#TK-10008</td>
+                                                <td>Missing commission payment</td>
+                                                <td>Payment Problem</td>
+                                                <td><span class="priority-badge urgent">Urgent</span></td>
+                                                <td>Mar 20, 2023</td>
+                                                <td><span class="status-badge resolved">Resolved</span></td>
+                                                <td>
+                                                    <button class="btn-icon" onclick="viewTicket('#TK-10008')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pagination">
+                                    <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="pagination-btn active">1</button>
+                                    <button class="pagination-btn">2</button>
+                                    <button class="pagination-btn">3</button>
+                                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal" id="mainModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Modal Title</h3>
+                    <span class="modal-close" id="modalClose">&times;</span>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Modal content will be loaded here -->
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button class="btn btn-outline" id="modalCancel">Cancel</button>
+                    <button class="btn btn-primary" id="modalConfirm">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>

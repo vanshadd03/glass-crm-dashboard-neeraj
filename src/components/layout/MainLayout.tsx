@@ -12,7 +12,8 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
   SidebarTrigger,
-  SidebarInset
+  SidebarInset,
+  useSidebar
 } from "@/components/ui/sidebar";
 import { HomeIcon, CreditCardIcon, UsersIcon, BarChart3Icon, LifeBuoyIcon, LogOutIcon } from "lucide-react";
 
@@ -21,6 +22,8 @@ interface MainLayoutProps {
 }
 
 export function MainLayout({ children }: MainLayoutProps) {
+  const { toggleSidebar } = useSidebar();
+  
   return (
     <>
       <Sidebar>
@@ -75,10 +78,10 @@ export function MainLayout({ children }: MainLayoutProps) {
       </Sidebar>
       <SidebarInset className="bg-background">
         <div className="flex items-center h-14 border-b px-4">
-          <SidebarTrigger className="mr-2 md:hidden" />
+          <SidebarTrigger className="mr-2" />
           <h1 className="text-lg font-semibold">Dashboard</h1>
         </div>
-        <div className="p-4">
+        <div className="p-4 overflow-auto">
           {children}
         </div>
       </SidebarInset>
